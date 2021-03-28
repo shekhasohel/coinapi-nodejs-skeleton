@@ -4,13 +4,14 @@ const fs = require('fs');
 const tarGZ = require('tar.gz');
 
 let coinAPI = new CoinAPI(config.CoinAPIKey);
-let number_of_events = 2; //currently setting this to lower number due to COIN APIs limit for requests per day for free account
+let number_of_events = config.NumberOfEvents; //currently setting this to lower number due to COIN APIs limit for requests per day for free account
 let delay_per_iteration = 2000;
 
 let start_time = new Date(2021, 01, 15);
 let time = new Date(2021, 01, 15);
-let base = "USD";
-let quote = "BTC";
+
+let base = config.Base;
+let quote = config.Quote;
 let index = 0;
 
 // This will hold the date extracted and results calculated
